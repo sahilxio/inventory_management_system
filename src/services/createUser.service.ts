@@ -22,7 +22,7 @@ export const createUserService = async (data: createUserType) => {
         VALUES($1, $2, $3)
         RETURNING u_id name, email, role, created_at
         `,
-    [data, name, data.email, hashedPassword],
+    [data.name, data.email, hashedPassword],
   );
 
   return {

@@ -9,7 +9,7 @@ export const app = express();
 app.use(express.json());
 app.use(cookieParser());
 
-app.use("api/user", authRouter);
-app.use("api/admin", createUserRouter);
+app.use("/api/user", authRouter);
+app.use("/api/admin", createUserRouter);
 
 app.use(errorHandler);

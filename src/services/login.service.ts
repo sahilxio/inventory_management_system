@@ -18,9 +18,13 @@ export async function loginService(data: LoginUserType) {
   const user = result.rows[0];
 
   const isPasswordValid = await bcrypt.compare(
-    data.password_hash,
+    data.password,
     user.password_hash,
   );
+
+  if (!isPasswordValid) {
+    throw new Error("password is invalid please try again");
+  }
 
   const token = jwt.sign(
     {
@@ -30,10 +34,6 @@ export async function loginService(data: LoginUserType) {
     process.env.JWT_SECRET!,
     { expiresIn: "1d" },
   );
-
-  if (!isPasswordValid) {
-    throw new Error("password is invalid please try again");
-  }
 
   return {
     token,

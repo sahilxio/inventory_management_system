@@ -1,9 +1,10 @@
 import express from "express"
-import { createUserService } from "../services/createUser.service"
+import { createUser } from "../controllers/createUser.controller"
+import { validateCreateUser } from "../middlewares/validation.middleware"
 
 
 
 export const createUserRouter = express.Router()
 
-createUserRouter.post("/create-user", createUserRouter)
+createUserRouter.post("/create-user", validateCreateUser, createUser)
 
