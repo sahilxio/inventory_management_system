@@ -7,9 +7,7 @@ export const createUser = async (
   res: Response,
   next: NextFunction,
 ) => {
-
-    try {
-    
+  try {
     const result = await createUserService(req.body);
 
     return res.status(201).json({
