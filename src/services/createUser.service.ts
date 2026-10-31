@@ -1,8 +1,8 @@
-import { createUserType } from "../types/auth.type";
+import { CreateUserType } from "../types/user.type";
 import { pool } from "../config/db";
 import bcrypt from "bcryptjs";
 
-export const createUserService = async (data: createUserType) => {
+export const createUserService = async (data: CreateUserType) => {
   const userExistAlready = await pool.query(
     `
         SELECT u_id FROM users

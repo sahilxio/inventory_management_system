@@ -1,9 +1,9 @@
 import { Request, Response, NextFunction } from "express";
-import { createUserType } from "../types/auth.type";
+import { CreateUserType } from "../types/user.type";
 import { createUserService } from "../services/createUser.service";
 
 export const createUser = async (
-  req: Request<{}, {}, createUserType>,
+  req: Request<{}, {}, CreateUserType>,
   res: Response,
   next: NextFunction,
 ) => {
