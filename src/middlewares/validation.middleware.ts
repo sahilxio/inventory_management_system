@@ -1,5 +1,5 @@
 import { LoginSchema } from "../schema/auth.schema";
-import { createUserSchema } from "../schema/createUser.schema";
+import { createUserSchema } from "../schema/user.schema";
 import { Request, Response, NextFunction } from "express";
 
 export const validateLogin = (

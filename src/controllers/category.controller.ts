@@ -1,6 +1,9 @@
 import { Request, Response, NextFunction } from "express";
 import { CreateCategoriesType } from "../types/catogries.type";
-import { createCategoriesService } from "../services/catogries.service";
+import {
+  createCategoriesService,
+  getCategoriesService,
+} from "../services/category.service";
 
 export const createCategories = async (
   req: Request<{}, {}, CreateCategoriesType>,
@@ -14,6 +17,24 @@ export const createCategories = async (
       success: true,
       message: "category create successfully",
       category: result.category,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const getCategories = async (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
+  try {
+    const result = await getCategoriesService();
+
+    return res.status(200).json({
+      success: true,
+      message: "categories fetched successfully",
+      categories: result.categories,
     });
   } catch (error) {
     next(error);

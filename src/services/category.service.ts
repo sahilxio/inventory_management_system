@@ -14,3 +14,14 @@ export const createCategoriesService = async (data: CreateCategoriesType) => {
     category: result.rows[0],
   };
 };
+
+export const getCategoriesService = async () => {
+
+  const result = await pool.query(`
+    SELECT * FROM categories
+    ORDER BY c_id DESC`);
+
+  return {
+    categories: result.rows
+  }
+};

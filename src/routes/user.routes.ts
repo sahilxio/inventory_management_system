@@ -4,9 +4,9 @@ import { validateCreateUser } from "../middlewares/validation.middleware";
 import { onlyAdmin } from "../middlewares/adminOnly.middleware";
 import { authMiddleware } from "../middlewares/auth.middleware";
 
-export const createUserRouter = express.Router();
+export const userRouter = express.Router();
 
-createUserRouter.post(
+userRouter.post(
   "/create-user",
   authMiddleware,
   onlyAdmin,

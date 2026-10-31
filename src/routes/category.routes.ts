@@ -1,13 +1,15 @@
 import express from "express";
-import { createCategories } from "../controllers/catogries.controller";
+import { createCategories, getCategories } from "../controllers/category.controller";
 import { onlyAdmin } from "../middlewares/adminOnly.middleware";
 import { authMiddleware } from "../middlewares/auth.middleware";
 
-export const createCategoriesRouter = express.Router();
+export const categoriesRouter = express.Router();
 
-createCategoriesRouter.use(
+categoriesRouter.post(
   "/categories",
   authMiddleware,
   onlyAdmin,
   createCategories,
 );
+
+categoriesRouter.get("/categories", authMiddleware, getCategories);
