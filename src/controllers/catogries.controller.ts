@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { CreateCategoriesType } from "../types/catogries.type";
-import { createCategoriesService } from "../services/createCatogries.service";
+import { createCategoriesService } from "../services/catogries.service";
+
 export const createCategories = async (
   req: Request<{}, {}, CreateCategoriesType>,
   res: Response,

@@ -1,5 +1,5 @@
 import express from "express";
-import { createCategories } from "../controllers/createCatogries.controller";
+import { createCategories } from "../controllers/catogries.controller";
 import { onlyAdmin } from "../middlewares/adminOnly.middleware";
 import { authMiddleware } from "../middlewares/auth.middleware";
 

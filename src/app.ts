@@ -2,8 +2,8 @@ import express from "express";
 import cookieParser from "cookie-parser";
 import { errorHandler } from "./middlewares/error.middleware";
 import { authRouter } from "./routes/auth.routes";
-import { createUserRouter } from "./routes/createUser.routes";
-import { createCategoriesRouter } from "./routes/createCategories.routes";
+import { createUserRouter } from "./routes/user.routes";
+import { createCategoriesRouter } from "./routes/categories.routes";
 
 export const app = express();
 
