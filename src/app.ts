@@ -13,7 +13,7 @@ app.use(cookieParser());
 
 app.use("/api/user", authRouter);
 app.use("/api/admin", userRouter);
-app.use("/api/admin", categoriesRouter);
+app.use("/api/category", categoriesRouter);
 app.use("/api/product", productRouter);
 
 app.use(errorHandler);

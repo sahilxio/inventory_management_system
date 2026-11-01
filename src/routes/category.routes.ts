@@ -6,7 +6,7 @@ import { authMiddleware } from "../middlewares/auth.middleware";
 export const categoriesRouter = express.Router();
 
 categoriesRouter.post(
-  "/categories",
+  "/create-category",
   authMiddleware,
   onlyAdmin,
   createCategories,

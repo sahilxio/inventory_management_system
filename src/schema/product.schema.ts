@@ -7,5 +7,4 @@ export const createProductSchema = z.object({
   description: z.string().optional(),
   cost_price: z.number().nonnegative(),
   selling_price: z.number().nonnegative(),
-  reorder_level: z.number().int().nonnegative().optional(),
 });
