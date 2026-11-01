@@ -5,6 +5,7 @@ import { authRouter } from "./routes/auth.routes";
 import { userRouter } from "./routes/user.routes";
 import { categoriesRouter } from "./routes/category.routes";
 import { productRouter } from "./routes/product.routes";
+import { supplierRouter } from "./routes/supplier.routes";
 
 export const app = express();
 
@@ -15,5 +16,6 @@ app.use("/api/user", authRouter);
 app.use("/api/admin", userRouter);
 app.use("/api/category", categoriesRouter);
 app.use("/api/product", productRouter);
+app.use("/api/supplier", supplierRouter);
 
 app.use(errorHandler);
