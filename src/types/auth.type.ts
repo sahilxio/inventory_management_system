@@ -4,6 +4,6 @@ import { z } from "zod";
 export type LoginUserType = z.infer<typeof LoginSchema>;
 
 export type AuthUser = {
-  userId: string;
-  role: string;
+  userId: number;
+  role: "admin" | "staff";
 };
