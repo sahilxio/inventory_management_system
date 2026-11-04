@@ -2,6 +2,7 @@ import express from "express";
 import {
   createPurchaseOrder,
   getPurchaseOrder,
+  receivePurchaseOrder,
 } from "../controllers/purchase_order.controller";
 import { authMiddleware } from "../middlewares/auth.middleware";
 
@@ -14,3 +15,5 @@ purchaseOrderRouter.post(
 );
 
 purchaseOrderRouter.get("/", getPurchaseOrder);
+
+purchaseOrderRouter.post("/:id/receive", receivePurchaseOrder);

@@ -11,3 +11,12 @@ export const purchaseOrderSchema = z.object({
     }),
   ),
 });
+
+export const receivePurchaseOrderSchema = z.object({
+  items: z.array(
+    z.object({
+      poi_id: z.number().int().positive(),
+      quantity_received: z.number().int().positive(),
+    }),
+  ),
+});

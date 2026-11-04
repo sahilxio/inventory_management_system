@@ -1,8 +1,12 @@
-import { purchaseOrderType } from "../types/purchase_order";
+import {
+  purchaseOrderType,
+  receivePurchaseOrderType,
+} from "../types/purchase_order";
 import { Request, Response, NextFunction } from "express";
 import {
   createPurchaseOrderService,
   getPurchaseOrderService,
+  receivePurchaseOrderService,
 } from "../services/purchase_order.service";
 
 export const createPurchaseOrder = async (
@@ -46,6 +50,28 @@ export const getPurchaseOrder = async (
       message: "purchase orders fetched successfully",
       purchase_orders: result.purchase_orders,
     });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const receivePurchaseOrder = async (
+  req: Request<{ id: string }, {}, receivePurchaseOrderType>,
+  res: Response,
+  next: NextFunction,
+) => {
+  try {
+    const poId = Number(req.params.id);
+    const userId = req.user?.userId;
+
+    if (userId === undefined) {
+      return res.status(401).json({
+        success: false,
+        message: "Unauthorized",
+      });
+    }
+
+    const result = await receivePurchaseOrderService(req.body, poId, userId);
   } catch (error) {
     next(error);
   }
