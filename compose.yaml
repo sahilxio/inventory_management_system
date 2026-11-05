@@ -1,0 +1,25 @@
+services:
+  backend:
+    build: .
+    ports:
+      - "9000:5000"
+    environment:
+      DB_HOST: database
+      DB_USER: postgres
+      DB_NAME: inventdb
+      DB_PORT: "5432"
+      DB_PASSWORD: apppassword
+
+  database:
+    image: postgres:17
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: apppassword
+      POSTGRES_DB: inventdb
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

@@ -5,6 +5,7 @@ export const pool = new Pool({
   database: process.env.DB_NAME,
   host: process.env.DB_HOST,
   port: Number(process.env.DB_PORT),
+  password: process.env.DB_PASSWORD
 });
 
 export async function connectDB() {
