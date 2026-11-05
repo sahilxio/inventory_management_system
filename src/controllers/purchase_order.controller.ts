@@ -72,6 +72,13 @@ export const receivePurchaseOrder = async (
     }
 
     const result = await receivePurchaseOrderService(req.body, poId, userId);
+
+    return res.status(201).json({
+      success: true,
+      message: "order received successfully",
+      updateItems: result.updateItems,
+      status: result.status,
+    });
   } catch (error) {
     next(error);
   }
